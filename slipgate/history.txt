@@ -1,0 +1,31 @@
+noclip
+r_showbboxes 1
+chase_active 1
+noclip
+map start
+impulse 9
+host_timescale 0.1
+host_timescale 0
+impulse 
+impulse 9
+host_timescale 0.1
+sv_freezenonclients 1
+sv_freezenonclients 0
+host_timescale 0.1
+impulse 9
+host_timescale 0.1
+map e2m1
+map e4m1
+map e3m1
+map e1m3
+map e1m4
+map e1m5
+map e1m1
+r_showtris 1
+r_scale 1
+map e2m3
+impulse 9
+map e4m1
+host_timescale 0.1
+impulse 9
+map e1m1
