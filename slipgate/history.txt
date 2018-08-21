@@ -1,4 +1,3 @@
-noclip
 r_showbboxes 1
 chase_active 1
 noclip
@@ -29,3 +28,4 @@ map e4m1
 host_timescale 0.1
 impulse 9
 map e1m1
+impulse 9
