@@ -4,7 +4,7 @@
 Slipgate is a Quake engine source port based on Quakespasm 0.93.0. The primary goal of this port is to provide an engine that is more suitable for developing full standalone games while still keeping compatibility with stock quake and quake mods. Some basic examples are being able to load normally awkward asset types such as lmp files directly as as tga files, modernizing some engine code, and a Lua client/server scripting system.
 
 ## Primary Features and Changes
- - A Lua based client and server scripting system that interops with QuakeC. See the **QLua** section for more info.
+ - A Lua based client and server scripting interface that interops with QuakeC. See the **QLua** section for more info.
  
  - Modified player physics allowing high frame per second support. Quakes standard physics generally break down and cause sticking and other issues above 70 fps.
  
