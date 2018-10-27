@@ -31,5 +31,10 @@ The client code consumes client entities (the data that quake sends to clients f
 #### RPC Calls
 The server can invoke arbitrary lua code on the client by using RPC calls. This can be useful for invoking events on the client. For example you could tell the client to spawn a gib at a specific location with a specific velocity and let the client handle all of its rendering, physics, and particle logic, instead of creating and replicating a gib as a server entity.
 
+id1 contains the QLua runtime folder and some test stuff like more gore and blood splats. If you want vanilla quake, just remove or rename the id1/qlua directory.
+
+## Downloading
+The /slipgate/ folder contains windows 64 bit binaries and an id1 folder structure. If you don't care about the source, you can download the /slipgate/ and put `PAK0.PAK` and `PAK1.PAK` in the id1 folder and play. There is a `config.cfg` in there already with some sane modern graphics and control settings.
+
 ## Compiling
 Only the 64 bit windows build has been maintained. The mac and linux build systems will need to be updated with new source files created and luajit library needs to be provided. I don't think there is any cross platform code breakage but it is untested.
