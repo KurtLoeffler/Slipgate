@@ -25,7 +25,7 @@ Slipgate is a Quake engine source port based on Quakespasm 0.93.0. The primary g
 ## QLua
 QLua is a Lua based scripting interface for the engine consisting of 2 separate lua states.
 #### Server State
-The server code and can call into, get return values from, override functions, and access global variables of QuakeC. It can do everything you can do in QuakeC and much more. The intent is to use use QuakeC as the game base and then add new features and override existing features in Lua which is a much more complete and versatile language.
+The server code can call into, get return values from, override functions, and access global variables of QuakeC. It can do everything you can do in QuakeC and much more. The intent is to use use QuakeC as the game base and then add new features and override existing features in Lua which is a much more complete and versatile language.
 #### Client State
 The client code consumes client entities (the data that quake sends to clients for rendering). These entities are much simpler than the server side versions, although a new server protocol is introduced which gives some additional useful entity information to the client, and server side lua variables can be replicated.
 #### RPC Calls
