@@ -573,6 +573,8 @@ void ED_Write(FILE* f, edict_t* ed)
 		fprintf(f, "\"%s\"\n", PR_UglyValueString(d->type, (eval_t *)v));
 	}
 
+	fprintf(f, "\"id\" \"%d\"\n", ed->id);
+
 	//johnfitz -- save entity alpha manually when progs.dat doesn't know about alpha
 	if (!pr_alpha_supported && ed->alpha != ENTALPHA_DEFAULT)
 		fprintf(f, "\"alpha\" \"%f\"\n", ENTALPHA_TOSAVE(ed->alpha));
@@ -928,6 +930,9 @@ const char* ED_ParseEdict(const char* data, edict_t* ent)
 		// and are immediately discarded by quake
 		if (keyname[0] == '_')
 			continue;
+
+		if (!strcmp(keyname, "id"))
+			ent->id = atoi(com_token);
 
 		//johnfitz -- hack to support .alpha even when progs.dat doesn't know about it
 		if (!strcmp(keyname, "alpha"))
