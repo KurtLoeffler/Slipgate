@@ -4,7 +4,7 @@
 Slipgate is a Quake engine source port based on Quakespasm 0.93.0. The primary goal of this port is to provide an engine that is more suitable for developing full standalone games while still keeping compatibility with stock quake and quake mods. Some basic examples are being able to load normally awkward asset types such as lmp files directly as as tga files, modernizing some engine code, and a Lua client/server scripting system.
 
 ## Primary Features and Changes
- - A Lua based client and server scripting system that interops with QuakeC. See the **QLua** section for more info.
+ - A Lua based client and server scripting interface that interops with QuakeC. See the **QLua** section for more info.
  
  - Modified player physics allowing high frame per second support. Quakes standard physics generally break down and cause sticking and other issues above 70 fps.
  
@@ -30,6 +30,11 @@ The server code and can call into, get return values from, override functions, a
 The client code consumes client entities (the data that quake sends to clients for rendering). These entities are much simpler than the server side versions, although a new server protocol in introduced which gives some additional useful entity information to the client, including replicated lua variables from the server.
 #### RPC Calls
 The server can invoke arbitrary lua code on the client by using RPC calls. This can be useful for invoking events on the client. For example you could tell the client to spawn a gib at a specific location with a specific velocity and let the client handle all of its rendering, physics, and particle logic, instead of creating and replicating a gib as a server entity.
+
+id1 contains the QLua runtime folder and some test stuff like more gore and blood splats. If you want vanilla quake, just remove or rename the id1/qlua directory.
+
+## Downloading
+The /slipgate/ folder contains windows 64 bit binaries and an id1 folder structure. If you don't care about the source, you can download the /slipgate/ and put `PAK0.PAK` and `PAK1.PAK` in the id1 folder and play. There is a `config.cfg` in there already with some sane modern graphics and control settings.
 
 ## Compiling
 Only the 64 bit windows build has been maintained. The mac and linux build systems will need to be updated with new source files created and luajit library needs to be provided. I don't think there is any cross platform code breakage but it is untested.
