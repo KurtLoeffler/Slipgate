@@ -15,8 +15,10 @@ function TraceAttack(damage, dir)
 end
 Override("TraceAttack")
 
+--[[
 --Disable the boring quake blood
 function SpawnBlood(org, vel, damage)
 
 end
 Override("SpawnBlood")
+]]

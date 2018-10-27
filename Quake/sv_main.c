@@ -28,7 +28,7 @@ server_static_t svs;
 
 static char localmodels[MAX_MODELS][8]; // inline model names for precache
 
-int sv_protocol = PROTOCOL_FITZQUAKE; //johnfitz
+int sv_protocol = PROTOCOL_SLIPGATE; //johnfitz
 
 extern bool pr_alpha_supported; //johnfitz
 

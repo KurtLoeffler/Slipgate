@@ -457,7 +457,7 @@ void CL_RelinkEntities(void)
 			continue;
 		}
 
-		if (ent->id == 0)
+		if (cl.protocol == PROTOCOL_SLIPGATE && ent->id == 0)
 		{
 			Con_Printf("entity id is zero %s\n", ent->model->name);
 		}
