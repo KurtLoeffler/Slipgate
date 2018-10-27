@@ -1,11 +1,3 @@
-r_showbboxes 1
-chase_active 1
-noclip
-map start
-impulse 9
-host_timescale 0.1
-host_timescale 0
-impulse 
 impulse 9
 host_timescale 0.1
 sv_freezenonclients 1
@@ -29,3 +21,4 @@ host_timescale 0.1
 impulse 9
 map e1m1
 impulse 9
+sensitivity 
