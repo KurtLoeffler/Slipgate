@@ -12,7 +12,7 @@ Slipgate is a Quake engine source port based on Quakespasm 0.93.0. The primary g
  
  - A work in progress persistant blood splat tech based on the existing lightmapping implementation. Splats are added with a special kind of light that is marked as a splat, and renders into the splat map instead of the light map. The existing QLua code uses it to create blood splats with a red light color. Ideally this would be inhanced with more interesting features in the shader such as splat pattern masking based on blood splat intensity.
  
- - A simple particle system that all the built in quake particles now use. It can be used from QLua or C to create what custom particle effects.
+ - A simple particle system that all the built in quake particles now use. It can be used from QLua or C to create custom particle effects.
  
  - Some modernization of graphics code, such as moving the BSP rendering from fixed function to shaders. Removal of some legacy code paths and SDL1 support.
  
