@@ -27,7 +27,7 @@ QLua is a Lua based scripting interface for the engine consisting of 2 separate 
 #### Server State
 The server code and can call into, get return values from, override functions, and access global variables of QuakeC. It can do everything you can do in QuakeC and much more. The intent is to use use QuakeC as the game base and then add new features and override existing features in Lua which is a much more complete and versatile language.
 #### Client State
-The client code consumes client entities (the data that quake sends to clients for rendering). These entities are much simpler than the server side versions, although a new server protocol in introduced which gives some additional useful entity information to the client, including replicated lua variables from the server.
+The client code consumes client entities (the data that quake sends to clients for rendering). These entities are much simpler than the server side versions, although a new server protocol is introduced which gives some additional useful entity information to the client, and server side lua variables can be replicated.
 #### RPC Calls
 The server can invoke arbitrary lua code on the client by using RPC calls. This can be useful for invoking events on the client. For example you could tell the client to spawn a gib at a specific location with a specific velocity and let the client handle all of its rendering, physics, and particle logic, instead of creating and replicating a gib as a server entity.
 
