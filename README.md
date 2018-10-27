@@ -18,7 +18,7 @@ Slipgate is a Quake engine source port based on Quakespasm 0.93.0. The primary g
  
  - Changing vec3_t and related types to from typedef float[3] to dedicated structs, and massive refactor of all of vector math usage. This results in much cleaner vector math and avoids the need for temporary variables. For instance you can write something like `vec3_t result = Vec_Cross(Vec_Sub(endPos, startPos), normal)`. Some additional math and vector functions were also added.
  
- - Server entities now have unique IDs that an be used to identify entities. The ID is also replicated to the client and available in QLua.
+ - Server entities now have unique IDs that can be used to identify entities. The ID is also replicated to the client and available in QLua.
  
  - Fixed an issue with floating point mouse movement data being converted to integers, causing mouse motion loss which was very noticable at higher frame reates.
 
