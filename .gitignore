@@ -330,8 +330,10 @@ ASALocalRun/
 .mfractor/
 
 # Quake Testing stuff
+/slipgate/game.txt
 /slipgate/history.txt
-/slipgate/ad/
-/slipgate/ad.lnk
+/slipgate/slipgate
 /slipgate/id1/PAK0.PAK
 /slipgate/id1/PAK1.PAK
+/slipgate/ad/
+/slipgate/ad.lnk
