@@ -3,7 +3,7 @@ cl = ffi.C.GetClientState();
 
 function SetBagValue(index, path, name, value)
 	local entity = GetEntityByIndex(index)
-
+	
 	local pathparts = string.split(path, ".")
 
 	local bag = entity

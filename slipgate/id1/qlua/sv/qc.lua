@@ -317,14 +317,17 @@ QCEntVars_mt = {
 					return
 				end
 				local id = table.id
+				local replicate = entitybagreplicate[id]
 				if state then
-					local replicate = entitybagreplicate[id]
 					if replicate == nil then
 						replicate = {}
 						entitybagreplicate[id] = replicate
 					end
+					replicate[fieldname] = true
 				else
-					entitybagreplicate[id] = nil
+					if replicate then
+						replicate[fieldname] = nil
+					end
 				end
 			end
 		end
@@ -585,6 +588,7 @@ function SetQCValue(qcvalue, value)
 				print("Attempt to assign non lua function \""..tostring(value).."\" that has not been indexed.\n")
 				return
 			end
+			print("!!!!!!!!"..tostring(funcinfo.index).." "..tostring(funcinfo.name).."\n")
 			qcvalue.integer = ffi.C.GetQCFuncCount()+funcinfo.index
 		end
 	elseif valuetype == "cdata" then
@@ -712,14 +716,14 @@ function QCFuncProxy(funcname, argcount)
 end
 
 function LuaFuncProxy(index)
-	local funcinfo = qc.luafunctions[funcname]
+	local funcinfo = qc.luafunctions[index]
 	--print("call lua proxy func "..funcinfo.index..", "..funcinfo.name.."\n")
 	if not funcinfo then error("Could not find function id "..index..".") end
 	--No way to find out how many arguments so just use the qc max
 	FuncProxy(funcinfo.func, 8)
 end
 
-function RequestBagItemNames(entindex, path)
+function RequestBagItemNames(entindex, path, requirereplicated)
 	local entity = GetEntityFromIndex(entindex)
 	local str = ""
 	local count = 0
@@ -735,13 +739,17 @@ function RequestBagItemNames(entindex, path)
 		return
 	end
 
+	local replicatedfields = entitybagreplicate[entity.id]
 	for k,v in pairs(bag) do
-		if type(k) == "string" then
-			if not (str == "") then
-				str = str.."\n"
+		local isvalid = not requirereplicated or (replicatedfields and replicatedfields[path.."."..k])
+		if isvalid then
+			if type(k) == "string" then
+				if not (str == "") then
+					str = str.."\n"
+				end
+				str = str..k
+				count = count+1
 			end
-			str = str..k
-			count = count+1
 		end
 	end
 	ffi.C.RespondBagItemNames(str, count)

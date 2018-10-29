@@ -364,6 +364,18 @@ function GetBagForEntityID(id)
 	return bag
 end
 
+function GetReplicatedForEntityID(id)
+	if id == 0 then
+		error("trying to get replicated bag for id 0", 2)
+	end
+	local bag = entityreplicatedbags[id]
+	if bag == nil then
+		bag = {}
+		entityreplicatedbags[id] = bag
+	end
+	return bag
+end
+
 Entity = ffi.typeof("Entity")
 Entity_mt = {
 	__eq = function(self, rhs)
@@ -383,13 +395,7 @@ Entity_mt = {
 			return GetBagForEntityID(table.id)
 		end
 		if key == "rep" then
-			local id = table.id
-			local bag = entityreplicatedbags[id]
-			if bag == nil then
-				bag = {}
-				entityreplicatedbags[id] = bag
-			end
-			return bag
+			return GetReplicatedForEntityID(table.id)
 		end
 		return nil
 	end

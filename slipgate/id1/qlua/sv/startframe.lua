@@ -5,11 +5,10 @@ function State(frame, nextthink)
 	self.think = nextthink--qc.functiontoindex[nextthink]
 end
 
-function army_atk1_think()
-	local self = qc.self.entity
-	--print("army_atk1_think\n")
-	State(20, qc.army_atk2)
-	qc.ai_face();
+function army_atk1()
+	--local self = qc.self.entity
+	--State(20, qc.army_atk2)
+	--qc.ai_face();
 end
 
 function StartFrame()
@@ -22,8 +21,7 @@ function monster_army()
 	qc.nooverride.monster_army()
 	--self.health = 5
 	--self.th_stand = qc.army_atk1
-	--self.th_stand = army_atk1_think
-	self.bag.dumdum = 5
+	--self.th_stand = army_atk1
 	self.bag.prt = {}
 	self.bag.prt.type = "e"
 	self.bag.prt.rate = 20
