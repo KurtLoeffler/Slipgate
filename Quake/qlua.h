@@ -63,7 +63,7 @@ qluafunction_t QLua_GetFunction(lua_State* state, char * name);
 void QLua_PushLuaFunction(lua_State* state, qluafunction_t * luafunction);
 bool QLua_CallFunction(lua_State* state, int argcount, int returncount);
 
-void QLua_GetBagItemNames(edict_t* ent, const char* path, char* outnames, int* namecount);
+void QLua_GetBagItemNames(edict_t* ent, const char* path, bool requireReplicated, char* outnames, int* namecount);
 void QLua_GetBagItem(edict_t* ent, const char* path, const char* name, BagValueType* valuetype, float* numbervalue, bool* boolvalue, char** stringvalue);
 
 void QLua_SetClientReplicatedBagNumber(entity_t* entity, const char* path, const char* name, float value);

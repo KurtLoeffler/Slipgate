@@ -418,7 +418,8 @@ void ParseBag(entity_t* ent)
 	{
 		for (int i = 0; i < bagvaluecount; i++)
 		{
-			const char* name = MSG_ReadString();
+			char name[256];
+			strcpy(name, MSG_ReadString());
 			BagValueType valuetype = MSG_ReadChar();
 			if (valuetype == bagv_number)
 			{
@@ -445,7 +446,7 @@ void ParseBag(entity_t* ent)
 				{
 					QLua_SetClientReplicatedBagString(ent, parsebagpath, name, value);
 				}
-				//Con_Printf("\"%s\" = \"%s\"", name, value);
+				//Con_Printf("\"%s\" = \"%s\"\n", name, value);
 			}
 			else if (valuetype == bagv_table)
 			{

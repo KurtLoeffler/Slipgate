@@ -273,14 +273,15 @@ export void RespondBagItemNames(const char* names, int namecount)
 	bagitemnamecount = namecount;
 }
 
-void QLua_GetBagItemNames(edict_t* ent, const char* path, char* outnames, int* namecount)
+void QLua_GetBagItemNames(edict_t* ent, const char* path, bool requireReplicated, char* outnames, int* namecount)
 {
 	int index = NUM_FOR_EDICT(ent);
 
 	QLua_PushLuaFunction(qlua.state, &qlua.requestbagitemnamesfunc);
 	lua_pushnumber(qlua.state, index);
 	lua_pushstring(qlua.state, path);
-	QLua_CallFunction(qlua.state, 2, LUA_MULTRET);
+	lua_pushboolean(qlua.state, requireReplicated);
+	QLua_CallFunction(qlua.state, 3, LUA_MULTRET);
 	lua_pop(qlua.state, 1);//Pop function table.
 
 	*namecount = bagitemnamecount;

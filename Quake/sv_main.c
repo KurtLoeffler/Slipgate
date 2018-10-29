@@ -557,7 +557,7 @@ void WriteBag(edict_t* ent, sizebuf_t* msg)
 	int namecount;
 
 	char bagnames[1024];
-	QLua_GetBagItemNames(ent, writebagpath, bagnames, &namecount);
+	QLua_GetBagItemNames(ent, writebagpath, true, bagnames, &namecount);
 
 	MSG_WriteShort(msg, namecount);
 	if (namecount)

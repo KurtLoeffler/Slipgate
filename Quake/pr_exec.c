@@ -386,12 +386,17 @@ void PR_ExecuteProgramOverride(func_t fnum, bool allowoverrides, bool isentry)
 	}
 
 	f = &pr_functions[fnum];
+
 	pr_trace = false;
 
 	// make a stack frame
 	exitdepth = pr_depth;
 
-	st = &pr_statements[PR_EnterFunction(f)];
+	if (!isluafunc)
+	{
+		st = &pr_statements[PR_EnterFunction(f)];
+	}
+	
 	//if (isentry)
 	{
 		startprofile = profile = 0;
@@ -406,7 +411,6 @@ void PR_ExecuteProgramOverride(func_t fnum, bool allowoverrides, bool isentry)
 			lua_pushnumber(qlua.state, fnum);
 			QLua_CallFunction(qlua.state, 1, LUA_MULTRET);
 			lua_pop(qlua.state, 1);//Pop function table.
-			PR_LeaveFunction();
 			return;
 		}
 		else
@@ -425,6 +429,8 @@ void PR_ExecuteProgramOverride(func_t fnum, bool allowoverrides, bool isentry)
 			}
 		}
 	}
+
+	
 
 	while (1)
 	{
