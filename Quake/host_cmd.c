@@ -958,6 +958,8 @@ void Host_Reconnect_f(void)
 	if (cls.demoplayback) // cross-map demo playback fix from Baker
 		return;
 
+	QLua_DestroyClient();
+
 	SCR_BeginLoadingPlaque();
 	cls.signon = 0; // need new connection messages
 }

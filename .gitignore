@@ -331,8 +331,10 @@ ASALocalRun/
 
 # Quake Testing stuff
 /slipgate/game.txt
+/slipgate/game.slipgate.txt
 /slipgate/history.txt
 /slipgate/slipgate
+/slipgate/id1/maps/
 /slipgate/id1/PAK0.PAK
 /slipgate/id1/PAK1.PAK
 /slipgate/ad/

@@ -71,5 +71,7 @@ void QLua_SetClientReplicatedBagBool(entity_t* entity, const char* path, const c
 void QLua_SetClientReplicatedBagString(entity_t* entity, const char* path, const char* name, const char* value);
 void QLua_ClearClientReplicatedBag(entity_t* entity, const char* name, const char* value);
 
+void QLua_Destroy();
 void QLua_Init();
+void QLua_DestroyClient();
 void QLua_InitClient();
