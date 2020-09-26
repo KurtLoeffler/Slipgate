@@ -904,6 +904,10 @@ void R_DrawTextureChains_Multitexture_VBO(qmodel_t* model, entity_t* ent, texcha
 	glTexCoordPointer(2, GL_FLOAT, VERTEXSIZE * sizeof(float), ((float *)0) + 5);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 
+	GL_ClientActiveTextureFunc(GL_TEXTURE3_ARB);
+	glTexCoordPointer(2, GL_FLOAT, VERTEXSIZE * sizeof(float), ((float*)0) + 3);
+	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+
 	// TMU 2 is for fullbrights; same texture coordinates as TMU 0
 	GL_ClientActiveTextureFunc(GL_TEXTURE2_ARB);
 	glTexCoordPointer(2, GL_FLOAT, VERTEXSIZE * sizeof(float), ((float *)0) + 3);
@@ -1061,6 +1065,11 @@ void R_DrawTextureChains_Multitexture_VBO(qmodel_t* model, entity_t* ent, texcha
 		glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 		glDisable(GL_TEXTURE_2D);
 
+		GL_SelectTexture(GL_TEXTURE3_ARB);
+		glTexEnvf(GL_TEXTURE_ENV, GL_RGB_SCALE_EXT, 1.0f);
+		glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+		glDisable(GL_TEXTURE_2D);
+
 		GL_SelectTexture(GL_TEXTURE0_ARB);
 		glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
 	}
@@ -1072,6 +1081,9 @@ void R_DrawTextureChains_Multitexture_VBO(qmodel_t* model, entity_t* ent, texcha
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 
 	GL_ClientActiveTextureFunc(GL_TEXTURE1_ARB);
+	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+
+	GL_ClientActiveTextureFunc(GL_TEXTURE3_ARB);
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 
 	GL_ClientActiveTextureFunc(GL_TEXTURE2_ARB);
