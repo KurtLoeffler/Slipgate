@@ -1438,7 +1438,7 @@ void TexMgr_ReloadNobrightImages(void)
 ================================================================================
 */
 
-static GLuint currenttexture[3] = { GL_UNUSED_TEXTURE, GL_UNUSED_TEXTURE, GL_UNUSED_TEXTURE }; // to avoid unnecessary texture sets
+static GLuint currenttexture[4] = { GL_UNUSED_TEXTURE, GL_UNUSED_TEXTURE, GL_UNUSED_TEXTURE, GL_UNUSED_TEXTURE }; // to avoid unnecessary texture sets
 static GLenum currenttarget = GL_TEXTURE0_ARB;
 bool mtexenabled = false;
 
@@ -1535,7 +1535,7 @@ Call this after changing the binding outside of GL_Bind.
 void GL_ClearBindings(void)
 {
 	int i;
-	for (i = 0; i < 3; i++)
+	for (i = 0; i < 4; i++)
 	{
 		currenttexture[i] = GL_UNUSED_TEXTURE;
 	}

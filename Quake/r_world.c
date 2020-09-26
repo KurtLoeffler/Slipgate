@@ -892,7 +892,7 @@ void R_DrawTextureChains_Multitexture_VBO(qmodel_t* model, entity_t* ent, texcha
 	GL_BindBuffer(GL_ARRAY_BUFFER, gl_bmodel_vbo);
 	GL_BindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0); // indices come from client memory!
 
-											   // Setup vertex array pointers
+	// Setup vertex array pointers
 	glVertexPointer(3, GL_FLOAT, VERTEXSIZE * sizeof(float), ((float *)0));
 	glEnableClientState(GL_VERTEX_ARRAY);
 
@@ -902,10 +902,6 @@ void R_DrawTextureChains_Multitexture_VBO(qmodel_t* model, entity_t* ent, texcha
 
 	GL_ClientActiveTextureFunc(GL_TEXTURE1_ARB);
 	glTexCoordPointer(2, GL_FLOAT, VERTEXSIZE * sizeof(float), ((float *)0) + 5);
-	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-
-	GL_ClientActiveTextureFunc(GL_TEXTURE3_ARB);
-	glTexCoordPointer(2, GL_FLOAT, VERTEXSIZE * sizeof(float), ((float*)0) + 3);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 
 	// TMU 2 is for fullbrights; same texture coordinates as TMU 0
@@ -1081,9 +1077,6 @@ void R_DrawTextureChains_Multitexture_VBO(qmodel_t* model, entity_t* ent, texcha
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 
 	GL_ClientActiveTextureFunc(GL_TEXTURE1_ARB);
-	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-
-	GL_ClientActiveTextureFunc(GL_TEXTURE3_ARB);
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 
 	GL_ClientActiveTextureFunc(GL_TEXTURE2_ARB);
